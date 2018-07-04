@@ -1,0 +1,100 @@
+@import '../scss/vanilla-1.0.2';
+@import '~react-select/scss/default';
+
+$max-app-width: 1400px;
+
+html {
+    height: 100%;
+}
+body {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    color: black;
+    background-color: white;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    min-height: 100%;
+}
+
+#mtb-app-container,
+#mtb-app {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    max-width: $max-app-width;
+}
+
+#mtb-app {
+    padding: 0 10px 10px 10px;
+    
+    header {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        padding: 5px 0;
+        position: fixed;
+        z-index: 1;
+        background-color: rgba(255, 255, 255, 0.9);
+        width: 100%;
+        max-width: $max-app-width;
+        margin-bottom: 10px;
+        top: 0;
+        
+        &.reserve-space {
+            position: static;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            
+            img {
+                height: 50px;
+            }
+            
+            span { 
+                font-size: 30px;
+                font-weight: bold;
+                white-space: nowrap;
+                margin: 0;
+                
+                &::first-letter {
+                    font-size: 0px;
+                }
+            }
+            
+            @media screen and (max-width: 702px) {
+                img { height: 30px; }
+                span { font-size: 20px; }
+            }
+        }
+        
+        .Select {
+            margin-left: 15px;
+        }
+    }
+    
+    .loading {
+        position: absolute;
+        height: 50%;
+        width: 50%;
+        top: 25%;
+        left: 25%;
+        opacity: 0.1;
+        background-repeat: no-repeat;
+        animation: spin 2s linear infinite;
+    }
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}

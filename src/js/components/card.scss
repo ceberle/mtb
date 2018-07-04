@@ -1,0 +1,39 @@
+.card {
+    position: relative;
+    height: 350px;
+    width: 223px;
+    border: solid 1px black;
+    border-radius: 5px;
+    background-color: #ddd;
+    
+    h3 {
+        font-size: 18px;
+        margin: 4px 0;
+        padding: 0 4px;
+        text-align: center;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    img {
+        height: 311px;
+        width: 223px;
+    }
+    
+    figcaption {
+        position: absolute;
+        bottom: 0;
+        font-size: 11px;
+        width: 100%;
+        background: black;
+        color: white;
+        text-align: center;
+    }
+    
+    // While waiting for content to load, show MTG logo as placeholder
+    &.placeholder {
+        img { opacity: 0.2 }
+    }
+}
