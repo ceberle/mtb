@@ -1,3 +1,7 @@
+@import '../../scss/mixins';
+
+$margin-padding: 4px;
+
 .card {
     position: relative;
     height: 350px;
@@ -8,13 +12,11 @@
     
     h3 {
         font-size: 18px;
-        margin: 4px 0;
-        padding: 0 4px;
+        margin: $margin-padding 0;
+        padding: 0 $margin-padding;
         text-align: center;
         width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        @include overflow-ellipsis();
     }
     
     img {
@@ -30,6 +32,8 @@
         background: black;
         color: white;
         text-align: center;
+        padding: 0 $margin-padding;
+        @include overflow-ellipsis();
     }
     
     // While waiting for content to load, show MTG logo as placeholder

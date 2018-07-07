@@ -27,15 +27,16 @@ export default class Card extends Component {
     
     render() {
         const { model } = this.props;
-        const { name = "", imageUrl = "", artist = "" } = (model || {});
+        const { name = "", imageUrl = "", artist = "", setName = ""} = (model || {});
         const { isImgLoading } = this.state;
         const isPlaceholder = !model || isImgLoading;       //show placeholder until the model & img is loaded
+        const caption = `${setName} | ${artist}`;
 
         return(
             <figure className={cn("card", {'placeholder': isPlaceholder})} style={{height: CARD_HEIGHT, width:CARD_WIDTH}}>
                 <h3 title={name}>{name}</h3>
                 <img src={isPlaceholder ? mtgLogo : imageUrl} onLoad={this.onImgLoad}/>
-                <figcaption>{artist}</figcaption>
+                <figcaption title={caption}>{caption}</figcaption>
             </figure>
         );
     }

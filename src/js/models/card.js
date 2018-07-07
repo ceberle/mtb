@@ -11,4 +11,5 @@ export default class Card {
     name = "";
     imageUrl = "";
     artist = "";
+    setName = "";
 }

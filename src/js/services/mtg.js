@@ -2,6 +2,7 @@ import toQueryString from '../utils/to-query-string';
 
 const ENDPOINT = 'https://api.magicthegathering.io/v1/';
 const DEFAULT_PAGE_SIZE = 20;
+const MAX_ROWS = 200;
 
 // Abstraction of Ajax calls for services. Can be extended for caching, retry, etc.
 function callService(path = 'cards', opts = { query: {} }) {
@@ -20,7 +21,7 @@ function callService(path = 'cards', opts = { query: {} }) {
                 return {
                     pageSize  : parseInt(resp.headers.get('page-size'), 10),
                     count     : parseInt(resp.headers.get('count'), 10),
-                    totalCount: parseInt(resp.headers.get('total-count'), 10),
+                    totalCount: Math.min(parseInt(resp.headers.get('total-count'), 10), MAX_ROWS),
                     jsonData
                 }
             });
